@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Accessibility - Manual testing</title>
+
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <!-- WCAG 2.4.1 - Provide a way to bypass repetitive blocks of content. -->
+    <!-- WCAG 2.4.5 - Offer multiple ways to locate content (search, sitemap, navigation).-->
+    <!-- WCAG 2.4.7 - A visible focus indicator is present for keyboard users. -->
+
+    <header>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+    <!-- Solution for 2.4.1 -->
+    <!-- The below anchor tag should be above the navbar -->
+    <!-- <a href="#main-content" class="skip-link">Skip to main content</a>
+    <main id="main-content">
+    </main> -->
+
+    <!-- Solution for 2.4.5 -->
+    <!-- <form action="/search" role="search">
+        <label for="search">Search:</label>
+        <input type="text" id="search" name="q" />
+        <button type="submit">Go</button>
+    </form> -->
+
+    <!-- Solution for 2.4.7 -  See styles.css for solution -->
+
+
+    <!-- WCAG 1.3.2 - Present content in a meaningful reading order. -->
+    <div class="container">
+        <h1>Our Services</h1>
+        <p>We offer web development, design, and SEO services.</p>
+        <img src="web-team.png" alt="Team working on web design" class="photo" width="500" />
+    </div>
+    <!-- Solution - See styles.css for solution-->
+
+
+
+    <!-- WCAG 1.3.3 - Do not rely solely on shape, size, or visual location to convey information. -->
+    <div>
+        <p>To continue, click the <strong>Go</strong> button.</p>
+        <button style="background-color: green; color: white;">Go</button>
+    </div>
+    <!-- Solution -->
+    <!-- <div>
+        <p>To continue, click the Go button below</p>
+        <button style="background-color: green; color: white;">Go</button>
+    </div> -->
+
+
+
+    <!-- WCAG 1.4.1 - Do not use color alone to convey information. -->
+    <div>
+        <p>Please fill out the <span style="color: red;">red fields</span>.</p>
+        <form style="color:red">
+            Name: <input type="text" style="color: red;">
+        </form>
+    </div>
+    <!-- Solution -->
+    <!-- <div>
+        <p>Please fill out all <strong>required</strong> fields marked with an asterisk (*).</p>
+        <form>
+            <label for="name">Name: <span aria-hidden="true" style="color:red">*</span></label>
+            <input type="text" id="name" name="name" aria-required="true" />
+        </form>
+    </div> -->
+
+
+
+    <!-- WCAG 1.4.2 - Provide a mechanism to pause or stop audio that plays automatically longer than 3s. -->
+    <div>
+        <!-- Solution -->
+        <!-- <audio controls autoplay> -->
+        <audio autoplay>
+            <source src="music.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+
+
+
+    <!-- WCAG 1.4.4 - Ensure text can be resized up to 200% without loss of content or functionality. -->
+    <div class="container1">
+        <p class="text">This is important information that might be cut off if resized. Lorem ipsum dolor sit amet
+            consectetur, adipisicing elit. Deserunt ex magnam dicta ea nemo voluptate ullam beatae.</p>
+    </div>
+    <br></br>
+    <!-- Solution - See styles.css file for solution -->
+
+
+
+
+    <!-- WCAG 1.4.5 - Use text rather than images of text where possible.-->
+    <div>
+        <img src="sale-banner.png" alt="Sale Today Only!" />
+    </div>
+    <!-- Solution -->
+    <!-- <div class="sale-banner">
+        Sale Today Only!
+    </div> -->
+    <br></br>
+
+
+
+    <!-- WCAG 1.4.11 -Provide a contrast of at least 3:1 for interface components and graphical objects.-->
+    <div>
+        <button class="btn">Submit</button>
+    </div>
+    <!-- Solution - See styles.css for solution -->
+    <br></br>
+
+
+
+    <!-- WCAG 1.4.13 - Dismissable, hoverable, and persistent content on hover/focus. -->
+    <div>
+        <span class="hover-target">Hover over me</span>
+        <div class="tooltip">Tooltip content</div>
+    </div>
+    <!-- Solution - Also see the styles.css file for css changes -->
+    <!-- <div>
+        <span class="hover-target" tabindex="0">Hover over me</span>
+        <div class="tooltip" role="tooltip">Tooltip content</div>
+    </div> -->
+    <br></br>
+    <br></br>
+
+
+
+    <!-- WCAG 2.1.2 - No keyboard trap. User can tab away from all components.-->
+    <div tabindex="0" id="trap" onkeydown="trapKey(event)">
+        Press Tab here and try to leave using the keyboard.
+    </div>
+    <br></br>
+    <!-- Solution - See script tag-->
+
+
+
+    <!-- WCAG 2.4.3  - Ensure a logical and intuitive focus order.-->
+    <form>
+        <button>Submit</button>
+        <input type="text" placeholder="Your name" />
+        <input type="email" placeholder="Your email" />
+        <input type="password" placeholder="Your password" />
+    </form>
+    <br></br>
+    <!-- Solution  -->
+    <!-- <form>
+        <input type="text" placeholder="Your name" />
+        <input type="email" placeholder="Your email" />
+        <input type="password" placeholder="Your password" />
+        <button>Submit</button>
+    </form> -->
+
+
+
+    <!-- WCAG 2.5.2 - Ensure actions on down-events can be undone or confirmed on up-events.-->
+    <div>
+        <button onmousedown="alert('Item purchased!')">Buy Now</button>
+        <!-- Solution -->
+        <!-- <button onclick="alert('Item purchased!')">Buy Now</button> -->
+    </div>
+    <br></br>
+
+
+
+    <!-- WCAG 2.5.3 - Visible text label matches programmatic name (for speech input).-->
+    <div>
+        <button aria-label="Go">Start</button>
+        <!-- Solution -->
+        <!-- <button aria-label="Start">Start</button> -->
+    </div>
+    <br></br>
+
+
+
+    <!-- WCAG 3.1.2 - Identify changes in language within the content. -->
+    <div>
+        <p>She said, "C'est la vie!" and walked away.</p>
+        <!-- Solution -->
+        <!-- <p>She said, <span lang="fr">"C'est la vie!"</span> and walked away.</p> -->
+    </div>
+    <br></br>
+
+
+
+    <!-- WCAG 3.2.1 - Elements do not initiate a change of context when they receive focus.-->
+    <div>
+        <select onfocus="window.location.href='https://example.com/page';">
+            <option>Go to Page</option>
+        </select>
+        <!-- Solution -->
+        <!-- <select onchange="window.location.href=this.value;">
+            <option value="">Select a page</option>
+            <option value="https://example.com/page">Go to Page</option>
+        </select>        -->
+    </div>
+    <br></br>
+
+
+
+    <!-- WCAG 3.2.2 - Changing a form control’s value does not automatically submit or change context.-->
+    <div>
+        <form>
+            <label for="product">Choose a product:</label>
+            <select id="product" name="product" onchange="this.form.submit()">
+                <option value="laptop">Laptop</option>
+                <option value="phone">Phone</option>
+            </select>
+        </form>
+        <!-- Solution -->
+        <!-- <form>
+                    <label for="product">Choose a product:</label>
+                    <select id="product" name="product">
+                        <option value="laptop">Laptop</option>
+                        <option value="phone">Phone</option>
+                    </select>
+                    <button type="submit">Submit</button>
+        </form> -->
+    </div>
+    <br></br>
+
+
+
+    <!-- WCAG 3.3.1 - Clearly identify input errors in text form. -->
+    <div>
+        <form id='form1'>
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email" />
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <!-- Solution -->
+    <!-- <div>
+        <form id="form1" onsubmit="return validateEmail()">
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email" aria-describedby="emailError" />
+            <div id="emailError" style="color: red; display: none;">
+                Please enter a valid email address.
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </div> -->
+
+    <br></br>
+
+
+
+    <!-- WCAG 4.1.2 - Provide proper names, roles, and values for interactive elements.-->
+    <div onclick="submitForm()" style="padding: 10px; background: blue; color: white; display: inline-block;">
+        Submit
+    </div>
+    <!-- Solution -->
+    <!-- <button onclick="submitForm()">Submit</button> -->
+    <br></br>
+
+    <script>
+        function trapKey(e) {
+            // Traps focus inside the element
+            if (e.key === "Tab") {
+                e.preventDefault(); // Prevents moving out
+            }
+        }
+        // Solution 2.1.2
+        // function trapKey(e) {
+        // }
+
+        function validateEmail() {
+            const emailInput = document.getElementById("email");
+            const emailError = document.getElementById("emailError");
+            const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+
+            if (!emailPattern.test(emailInput.value)) {
+                emailError.style.display = "block";
+                emailInput.setAttribute("aria-invalid", "true");
+                return false;
+            }
+
+            emailError.style.display = "none";
+            emailInput.removeAttribute("aria-invalid");
+            return true;
+        }
+    </script>
+</body>
+
+</html>

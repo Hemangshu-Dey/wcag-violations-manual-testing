@@ -1,0 +1,96 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.photo {
+  order: -1;
+  /* Solution for WCAG 1.3.2 - Remove the order for the photo class to ensure it is not moved out of the visual order. and make the sequence meaningful */
+}
+
+.container1 {
+  width: 100%;
+  height: 50px;
+}
+
+.container1 .text {
+  font-size: 35px;
+}
+
+/* Solution for WCAG 1.4.4 */
+/* .container1 {
+  max-width: 100%;
+  padding: 1rem;
+  height: auto; // avoid fixed height 
+}
+
+.container1 .text {
+  font-size: 2rem;  //relative units preferred
+} */
+
+.btn {
+  background-color: #e0e0e0;
+  border: none;
+  color: #e0e0e0;
+  padding: 10px 20px;
+
+  /* Solution for WCAG 1.4.11 */
+  /* color: #000000;
+  padding: 10px 20px; */
+}
+
+.tooltip {
+  display: none;
+  position: absolute;
+  background: #333;
+  color: #fff;
+  padding: 5px;
+}
+
+.hover-target:hover + .tooltip {
+  display: block;
+}
+
+/* Solution for WCAG 1.4.13 */
+.hover-target:hover + .tooltip,
+.hover-target:focus + .tooltip,
+.tooltip:hover,
+.tooltip:focus {
+  display: block;
+} 
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:focus {
+  outline: none;
+
+  /* Solution for WCAG 2.4.7 */
+  /* outline: 3px solid #ff9900;
+  outline-offset: 2px; */
+}
+
+.sale-banner {
+  font-size: 2rem;
+  font-weight: bold;
+  background: red;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  border-radius: 8px;
+}
+
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #000;
+  color: #fff;
+  padding: 8px;
+  z-index: 100;
+}
+.skip-link:focus {
+  top: 0;
+}
